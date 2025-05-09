@@ -4,7 +4,7 @@ import cors from "cors"
 import dotenv from "dotenv"
 import authRoutes from "./routes/auth.routes.js"
 import userRoutes from "./routes/user.routes.js"
-
+import reservationRoutes from "./routes/reservation.routes.js"
 import orderRoutes from "./routes/order.routes.js"
 
 import menuRoutes from "./routes/menuItems.routes.js"
@@ -62,7 +62,7 @@ app.use((req, res, next) => {
 app.use("/api/auth", authRoutes)
 app.use("/api/meals", menuRoutes)
 app.use("/api/users", userRoutes)
-
+app.use("/api/reservations",reservationRoutes )
 app.use("/api/orders", orderRoutes)
 
 // Add notification routes

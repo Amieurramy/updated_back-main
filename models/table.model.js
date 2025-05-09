@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 const tableSchema = new mongoose.Schema(
   {
     tableId: {
@@ -15,12 +15,16 @@ const tableSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "TableSession",
     },
+    capacity: { type: Number, required: true },
     isActive: {
       type: Boolean,
       default: false,
     },
+    name: { type: String }, // Optionnel: Nom/Numéro de table (ex: "Table 5", "Terrasse 1")
   },
-  { timestamps: true },
+  { timestamps: true }
 );
+
+
 
 export const Table = mongoose.model("Table", tableSchema);

@@ -7,6 +7,8 @@ const orderItemSchema = new mongoose.Schema({
   quantity: { type: Number, required: true, default: 1 },
   total: { type: Number, required: true },
   specialInstructions: { type: String },
+  image: { type: String },
+  currentUserRating: { type: Number },
   addons: [
     {
       name: { type: String },
@@ -38,7 +40,7 @@ const orderSchema = new mongoose.Schema(
     paymentId: { type: String },
     
     deliveryAddress: {
-      label: { type: String, required: true },
+      label: { type: String },
       // Champ Optionnel pour garder l'ID Google Places/maps_local si utile
       place_id: { type: String },
       // Vos champs existants (type et address devraient aussi être requis logiquement)
@@ -61,7 +63,7 @@ const orderSchema = new mongoose.Schema(
     deliveryInstructions: { type: String },
     estimatedDeliveryTime: { type: Date },
     actualDeliveryTime: { type: Date },
-    driverId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    driverId: { type: mongoose.Schema.Types.ObjectId, ref: "Staff" },
   },
   {
     timestamps: true,
